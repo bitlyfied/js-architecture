@@ -1,29 +1,29 @@
-var tks = (function(){
-  
-  var components = {};
-  var core = $(body);
+var tks = (function () {
 
-  core.register = function(componentName, htmlSelector){
-  	components[componentName].htmlSelector = htmlSelector;
-  };
+    var widgets = [];
+    var core = $(body);
 
-  $(function(){
-  	// notifies all the component that the dom is ready
-	core.trigger('ready');
+    core.register = function (widgetName, htmlSelector) {
+        widgets[widgetName].htmlSelector = htmlSelector;
+    };
 
-	$.each(components, function(index, component){
-		if(component.htmlSelector){
-			// instantiate a new component per dom element matched
-			$(component.htmlSelector).each(function(domElement){
-				new component(domElement);
-			});
-		}
-	});
-  });
+    $(function () {
+        // notifies all the widgets that the dom is ready
+        core.trigger('ready');
 
-  return {
-  	component: function(name, init){
-		components[name] = init(core);
-  	}
-  };
+        $.each(widgets, function (index, widget) {
+            if (widget.htmlSelector) {
+                // instantiate a new widget per dom element matched
+                $(widget.htmlSelector).each(function (domElement) {
+                    new widget(domElement);
+                });
+            }
+        });
+    });
+
+    return {
+        widget: function (name, init) {
+            widgets[name] = init(core);
+        }
+    };
 }());
