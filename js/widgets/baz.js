@@ -5,7 +5,7 @@
 tkc.widget('baz', function (core) {
 
     return function BazWidget(dom) {
-        var widget = $(this);
+        var widget = this;
         var element = $(dom);
 
         widget.init = function () {

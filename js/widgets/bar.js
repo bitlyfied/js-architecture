@@ -10,7 +10,7 @@
 tkc.widget('bar', function (core) {
 
     return function BarWidget(dom) {
-        var widget = $(this);
+        var widget = this;
         var element = $(dom);
         var input = element.find('input');
 
