@@ -1,0 +1,6 @@
+.big-red-button-widget{
+    border: 5px solid darkred;
+    background-color:red;
+    padding:40px;
+    display:inline-block;
+}

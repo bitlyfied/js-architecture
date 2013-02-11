@@ -3,30 +3,59 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<script src="components/jquery/jquery.min.js" type="text/javascript"></script>
-	<script src="js/widgets/foo.js" type="text/javascript"></script>
 	<script src="js/core.js" type="text/javascript"></script>
+
+	<script src="js/widgets/foo.js" type="text/javascript"></script>
+	<script src="js/widgets/bar.js" type="text/javascript"></script>
+	<script src="js/widgets/baz.js" type="text/javascript"></script>
+	<script src="js/widgets/big-red-button.js" type="text/javascript"></script>
+
+
+	<link rel="stylesheet" href="css/widgets/foo.css" />
+	<link rel="stylesheet" href="css/widgets/bar.css" />
+	<link rel="stylesheet" href="css/widgets/baz.css" />
+	<link rel="stylesheet" href="css/widgets/big-red-button.css" />
 </head>
 <body>
-	<h2>Components</h2>
+	<h2>Widgets</h2>
 
-	<div data-widget="foo">
+	<h3>Here are 3 Foo Widgets</h3>
+
+	<div class="foo-widget">
 	 	<p>10</p>
 	</div>
 
-	<div data-widget="foo">
+	<div class="foo-widget">
 		<p>45</p>
 	</div>
 
-	<div data-widget="foo">
+	<div class="foo-widget">
 		<p>80</p>
 	</div>
 
-	<div data-widget="bar">
-		<input type="text" name="just-an-input"/>
+	<h3>Here is one Bar Widget</h3>
+
+	<div class="bar-widget">
+		<input type="text" />
 	</div>
 
-	<div data-widget="bar">
-		<input type="text" name="just-an-input"/>
+	<h3>Here is one Baz Widget - a combination of one Foo Widget and one Bar Widget</h3>
+
+
+	<div class="baz-widget">
+
+		<div class="foo-widget">
+			<p>0</p>
+		</div>
+
+		<div class="bar-widget">
+			<input type="text" />
+		</div>
 	</div>
+
+	<h3>Here is one Big Red Button Widget</h3>
+
+	<a class="big-red-button-widget" href="javascript:;">Boom</a>
+
 </body>
 </html>

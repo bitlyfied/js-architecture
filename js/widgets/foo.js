@@ -1,20 +1,52 @@
-tks.widget('foo', function(core){
-  
-  // we could even remove this and use it as a default
-  core.register('foo', '[data-component=foo]');
+/**
+ * @widget FooWidget
+ * @html-sample
+ *
+ * <div>
+ *     <p>number</p>
+ * </div>
+ */
+tkc.widget('foo', function (core) {
 
-  core.on('ready', function(){
-    // is some initialization is required on dom ready
-    // for all the widgets
-  });
+    return function FooWidget(dom) {
+        var widget = this;
+        var element = $(dom);
+        var ptag = element.find('p');
 
-  return function CarouselWidget(){
-    var widget = this;
+        widget.init = function () {
+            widget.update();
+            core.on('boom', widget.zero);
+        };
 
-      widget.init = function(element){
+        widget.update = function () {
+            element.css('border-color', widget.color());
+        };
 
-    }
+        widget.value = function(newValue){
+            if(typeof newValue !== 'undefined'){
+                ptag.text(newValue);
+                widget.update();
+            }
 
-  };
+            return parseInt(ptag.text());
+        };
 
+        widget.color = function(){
+            var value = widget.value();
+            switch(true){
+                case value < 25:
+                    return 'red';
+                case value < 60:
+                    return 'orange';
+                default:
+                    return 'green';
+            }
+        };
+
+        widget.zero = function () {
+            widget.value(0);
+        };
+
+        return widget;
+    };
 });
