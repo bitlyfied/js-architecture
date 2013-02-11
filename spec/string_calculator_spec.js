@@ -1,4 +1,4 @@
-describe("StringCalculator", function() {
+describe("WheelGraph", function() {
 
   describe("when an empty string is passed in", function() {
     it("returns 0", function() {
